@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Editar Veículos Web</title>
+		<link href="../resources/css/bootstrap.css" rel="stylesheet">
+		<link href="../resources/css/jquery-ui.css" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div class="container">
+		
+			<form class="form" id="formVeiculo" novalidate>
+				<input type="hidden" id="id" />
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
+						<div id="global-message" class="alert text-center" role="alert"
+							hidden></div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
+						<h3>Cadastro de Veículos</h3>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
+						<div class="form-group">
+							<input type="text" class="form-control" id="placa"	placeholder="Placa do veículo" />
+							<span id="placa-message" class="text-danger" hidden></span>
+						</div>
+					</div>
+					
+					<div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
+						<div class="form-group">
+							<input type="text" class="form-control"	id="nomeProprietario" placeholder="Nome do Proprietario do Veículo" />
+							<span id="nomeProprietario-message" class="text-danger" hidden></span>
+						</div>
+					</div>
+					
+					<div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4">
+						<div class="form-group">
+							<input type="text" class="form-control" id="dataEmplacamento" placeholder="Data do Emplacamento" />
+							<span id="dataEmplacamento-message" class="text-danger" hidden></span>
+						</div>
+					</div>
+					
+					<div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4">
+						<div class="form-group">
+							<input type="text" class="form-control" id="valorIPVA" placeholder="Valor do IPVA" /> 
+							<span id="valorIPVA-message" class="text-danger" hidden></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
+						<a class="btn btn-primary btn-block" href="lista-veiculos.html">
+							<span class="glyphicon glyphicon-menu-left"></span> Voltar
+						</a>
+						
+						<button id="excluir" class="btn btn-danger btn-block" type="button">
+							<span class="glyphicon glyphicon-remove"></span> Excluir
+						</button>
+						
+						<button id="salvar" class="btn btn-success btn-block" type="button">
+							<span class="glyphicon glyphicon-ok"></span> Salvar
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script src="../js/lib/jquery.js"></script>
+		<script src="../js/lib/jquery.maskMoney.js"></script>
+		<script src="../js/lib/jquery.maskedinput.js"></script>
+		<script src="../js/lib/inputmask-plugin.js"></script>
+		<script src="../js/lib/jquery-ui.js"></script>
+		<script src="../js/lib/bootstrap.js"></script>
+		<script src="../js/api/veiculo-proxy.js"></script>
+		<script src="../js/api/utils.js"></script>
+		<script src="../js/ctrl/editar-veiculo.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function()
+					{
+					     $("#valorIPVA").maskMoney({
+					         prefix: "R$ ",
+					         decimal: ",",
+					         thousands: "."
+					     });
+					});
+		
+			$("#dataEmplacamento").datepicker({
+				dateFormat : 'dd/mm/yy',
+				changeMonth : true,
+				changeYear : true,
+				showWeek : true
+			});	
+		
+			jQuery(function($){
+				$("#placa").mask("aaa-9999",{placeholder:" "});
+			});
+		</script>
+	</body>
+</html>

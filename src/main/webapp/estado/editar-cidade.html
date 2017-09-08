@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Trabalho Final</title>
+		<link href="../resources/css/bootstrap.css" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h3>Cadastro de Cidades</h3>
+			</div>
+			
+			<form class="form" id="formVeiculo" novalidate>
+				<input type="hidden" id="id" />
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div id="global-message" class="alert text-center" role="alert"
+							hidden></div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="nome" class="control-label">Nome</label> <input
+								type="text" class="form-control" id="nome"
+								placeholder="Nome da cidade" maxlength="100" title="Deve ter no mínimo 3 caracteres." />
+							<span id="nome-message" class="text-danger" hidden></span>
+						</div>
+					</div>
+					
+					<div class="col-xs-12 col-sm-12 col-md-6">
+						<div class="form-group">
+							<label for="dataConstituicao" class="control-label">Data Constituição</label> 
+							<input type="text" class="form-control" id="dataConstituicao" 
+								placeholder="99/99/9999" /> 
+							<span id="dataConstituicao-message" class="text-danger" hidden></span>
+						</div>
+					</div>
+				
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="form-group">
+							<label for="populacao" class="control-label">População</label> 
+							<input type="text" class="form-control"
+								id="populacao" placeholder="100.000.000" maxlength="20" />
+							<span id="populacao-message" class="text-danger" hidden></span>
+						</div>
+					</div>
+				
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="form-group">
+							<label for="valorIPVA" class="control-label">PIB</label>
+							<input type="text" class="form-control" id="pib"
+								placeholder="10,00" maxlength="10" /> <span id="pib-message"
+								class="text-danger" hidden></span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div
+						class="col-xs-12 col-sm-4 col-md-2 col-sm-offset-4 col-md-offset-5">
+						<button id="voltar" class="btn btn-primary btn-block" type="button">
+							<span class="glyphicon glyphicon-menu-left"></span> Voltar
+						</button>
+						<button id="excluir" class="btn btn-danger btn-block" type="button">
+							<span class="glyphicon glyphicon-remove"></span> Excluir
+						</button>
+						<button id="salvar" class="btn btn-success btn-block" type="button">
+							<span class="glyphicon glyphicon-ok"></span> Salvar
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script src="../js/lib/jquery.js"></script>
+		<script src="../js/lib/bootstrap.js"></script>
+		<script src="../js/api/cidade-proxy.js"></script>
+		<script src="../js/api/utils.js"></script>
+		<script src="../js/ctrl/editar-cidade.js"></script>
+	</body>
+</html>
